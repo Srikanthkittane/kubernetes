@@ -184,3 +184,18 @@ kubectl apply -f loadbal.yml
 kubectl get svc
 kubectl get ep
 vi loadbal.yml 
+ls
+mkdir gitkube
+cp -R . gitkube/
+cp -R . gitkube
+cd gitkube/
+ls
+rm -rf gitkube
+git init
+git remote add https://github.com/Srikanthkittane/kubernetes.git
+git remote add origin https://github.com/Srikanthkittane/kubernetes.git
+git add .
+git commit -m "this is the first push"
+git push origin 
+git push origin master
+ls
