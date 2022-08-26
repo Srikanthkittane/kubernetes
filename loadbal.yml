@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-loadbal
+spec:
+  type: LoadBalancer     
+  selector: 
+    app: web-host
+  ports: 
+    - targetPort: 8080
+      protocol: TCP
+      port: 8094
+      name: tomcat
+    - name: nginx-port
+      protocol: TCP
+      port: 8096
+      targetPort: 80

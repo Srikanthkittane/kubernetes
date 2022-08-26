@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicaset
+spec:
+  replicas: 5
+  selector: 
+    matchLabels:
+      app: nnwebserver
+  template:
+    metadata:
+      name: tomcat-nginx
+      labels:
+        app: nnwebserver
+    spec:
+      containers:
+        - name: tomcat
+          image: srikanthkittane/tomcat1.0:5

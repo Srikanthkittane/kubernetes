@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+spec:
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 4
+      maxUnavailable: 2
+  selector: 
+    matchLabels:
+      app: nnwebserver
+  template:
+    metadata:
+      name: tomcat-nginx
+      labels:
+        app: nnwebserver
+    spec:
+      containers:
+        - name: tomcat
+          image: srikanthkittane/tomcat1.0:5
+      tolerations:
+        - key: "name"
+          operator: "Equal"
+          value: "lazy"
+          effect: "NoSchedule"
